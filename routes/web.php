@@ -2,4 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'tickets');
+Route::get('/', function () {
+    return response()->file(public_path('index.html'));
+});
