@@ -1,11 +1,37 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.ticket-form {
+  margin-bottom: 1rem;
+}
+.ticket-form__field {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.ticket-form__submit {
+  padding: 0.5rem 1rem;
+}
+.ticket-list {
+  list-style: none;
+  padding: 0;
+}
+.ticket-list__item {
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+}
+.ticket-list__item--active {
+  background: #f0f8ff;
+}
+.ticket__category {
+  font-weight: bold;
+}
+.loading-spinner {
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

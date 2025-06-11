@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    @vite(['resources/css/app.css','resources/js/app.js'])
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+<body>
+<div id="app">
+    <form class="ticket-form" @submit.prevent="createTicket">
+        <input class="ticket-form__field" v-model="form.subject" placeholder="Subject" required>
+        <textarea class="ticket-form__field" v-model="form.body" placeholder="Body" required></textarea>
+        <button class="ticket-form__submit" type="submit">Submit</button>
+    </form>
+
+    <input class="ticket-form__field" v-model="search" @input="fetchTickets" placeholder="Search">
+
+    <ul class="ticket-list">
+        <li v-for="ticket in tickets" :key="ticket.id" class="ticket-list__item">
+            <div>{{ ticket.subject }}</div>
+            <div>{{ ticket.body }}</div>
+            <div class="ticket__category">{{ ticket.category || 'Unclassified' }}</div>
+            <button @click="classify(ticket.id)" :disabled="loading===ticket.id">Classify</button>
+            <span v-if="loading===ticket.id" class="loading-spinner"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

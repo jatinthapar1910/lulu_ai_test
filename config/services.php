@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'openai' => [
+        'enabled' => env('OPENAI_CLASSIFY_ENABLED', true),
+        'api_key' => env('OPENAI_API_KEY'),
+    ],
+
 ];
